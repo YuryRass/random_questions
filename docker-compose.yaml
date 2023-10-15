@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  db:
+    image: postgres
+    container_name: victorina_db
+    env_file:
+      - .env-non-dev
+    ports:
+      - 5432:5432
+  victorina:
+    image: victorina_image
+    build:
+      context: .
+    container_name: victorina_app
+    env_file:
+      - .env-non-dev
+    depends_on:
+      - db
+    ports:
+      - 9000:8000
+    command: ["/victorina/docker/app.sh"]

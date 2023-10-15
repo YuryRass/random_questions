@@ -1,0 +1,14 @@
+# VSCode
+__pycache__/
+.vscode/
+
+# Environments
+venv/
+
+# Git
+.gitignore
+.git
+
+# Docker files
+Dockerfile
+docker-compose.yaml
