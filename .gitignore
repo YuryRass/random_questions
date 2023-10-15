@@ -4,6 +4,4 @@ venv
 
 # VSCode
 __pycache__
-
-# Alembic
-app/migrations
+.vscode/

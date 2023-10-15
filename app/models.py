@@ -13,14 +13,14 @@ class Question(Base):
     content: Mapped[str] = mapped_column(
         Text, unique=True,
     )
-    created_at: Mapped[datetime] = mapped_column(DateTime)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
     answer_id: Mapped[int] = mapped_column(
         ForeignKey("answer.id", ondelete='CASCADE'),
         nullable=False,
     )
-    # answer: Mapped["Answer"] = relationship(
-    #     back_populates="question",
-    # )
+    answer: Mapped["Answer"] = relationship(
+        back_populates="question",
+    )
 
 
 class Answer(Base):
@@ -29,3 +29,8 @@ class Answer(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     content: Mapped[str] = mapped_column(Text)
+    question: Mapped["Question"] = relationship(
+        back_populates="answer",
+        cascade="all, delete, delete-orphan",
+        lazy='selectin'
+    )

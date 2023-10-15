@@ -1,7 +1,7 @@
-import requests
 from fastapi import APIRouter
 
-from app.crud import get_last_question
+from app.crud import add_questions, get_questions
+from app.shemas import SQuestionAnswer
 
 router: APIRouter = APIRouter(
     prefix="/victorina",
@@ -11,6 +11,7 @@ router: APIRouter = APIRouter(
 
 @router.post("/question")
 async def get_random_question(questions_num: int):
-    last_question: str = await get_last_question()
+    questions: list[SQuestionAnswer] = get_questions(questions_num)
+    question: str = await add_questions(questions)
 
-    return last_question
+    return {'question': question}
