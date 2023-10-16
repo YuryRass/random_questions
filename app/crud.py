@@ -130,6 +130,14 @@ async def get_last_question() -> str | None:
 
 
 def get_questions(num_question: int) -> list[SQuestionAnswer]:
+    """Генерирует вопросы, обращаясь к публичному API
+
+    Args:
+        num_question (int): кол-во вопросов
+
+    Returns:
+        list[SQuestionAnswer]: списко сгенерированных вопросов
+    """
     payload = {"count": num_question}
     data = requests.get(settings.URL, params=payload).json()
 

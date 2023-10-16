@@ -1,3 +1,4 @@
+"""Модуль по созданию подключения к БД"""
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.ext.asyncio import (
     AsyncEngine, AsyncSession,
