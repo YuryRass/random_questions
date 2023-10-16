@@ -1,6 +1,6 @@
 # environments
-.env
 .env-non-dev
+.env
 venv
 
 # VSCode
