@@ -9,7 +9,7 @@ from alembic import context
 
 from app.database import Base
 from app.models import Answer, Question
-from config import settings
+from app.config import settings
 
 sys.path.insert(0, dirname(dirname(dirname(abspath(__file__)))))
 

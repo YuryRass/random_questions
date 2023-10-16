@@ -5,7 +5,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.database import async_session_maker
 from app.models import Answer, Question
 from app.shemas import SQuestionAnswer
-from config import settings
+from app.config import settings
 
 
 async def add_questions(
